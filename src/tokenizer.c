@@ -19,7 +19,6 @@ char *word_start(char *str){
   else
     return str;
 }
-
 char *word_terminator (char *word){
   return word+'0';
 }
@@ -37,8 +36,6 @@ int count_words(char *str){
    return counter;
 }
       char *copy_str(char *inStr, short len){
-
-
 	int i;
      char *c = malloc(sizeof(*inStr)+1);
      for(i = 0;i < len - 1;i++){
@@ -54,35 +51,29 @@ char** tokenizer(char *str){
        		  for (int i = 0;i<numwords;i++){
 	       	    tokens[i] = malloc((numwords+1) *sizeof(char*));
 		    a = word_start(str);
-		    b = word_terminator(a);
+		    b = worxd_terminator(a);
 		    tokens[i] = copy_str(a, (b-a));
 		    str = word_start(b);
   }
 			  return tokens;
 			  }
-
 void print_tokens(char **tokens){
   int i = 0 ;
   while(*(tokens+i) != 0){
     printf("%s\n", tokens[i]);
     i++;
-  }
-  
-}void free_tokens(char ** tokens){
+  }  
+}
+void free_tokens(char ** tokens){
   int i = 0;
   while(*(tokens+i) != 0){
     free(*(tokens+i));
   }
-}
-
-    
+}    
 int main (){
-  char *t = "larry" ;
  printf(">");
  //  while(scanf("%s",&*t) != EOF){
  //   printf("%s ", t); 
- //  }
-
- 
+ //  } 
   return 0;
 }
