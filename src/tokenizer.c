@@ -19,6 +19,7 @@ char *word_start(char *str){
   else
     return str;
 }
+
 char *word_terminator (char *word){
   return word+'0';
 }
@@ -51,29 +52,19 @@ char** tokenizer(char *str){
        		  for (int i = 0;i<numwords;i++){
 	       	    tokens[i] = malloc((numwords+1) *sizeof(char*));
 		    a = word_start(str);
-		    b = worxd_terminator(a);
+		    b = word_terminator(a);
 		    tokens[i] = copy_str(a, (b-a));
 		    str = word_start(b);
   }
 			  return tokens;
 			  }
-void print_tokens(char **tokens){
-  int i = 0 ;
-  while(*(tokens+i) != 0){
-    printf("%s\n", tokens[i]);
-    i++;
-  }  
-}
-void free_tokens(char ** tokens){
-  int i = 0;
-  while(*(tokens+i) != 0){
-    free(*(tokens+i));
-  }
-}    
 int main (){
+  char *t = "larry" ;
  printf(">");
  //  while(scanf("%s",&*t) != EOF){
  //   printf("%s ", t); 
- //  } 
+ //  }
+ printf("%s", *word_terminator(t));
+ 
   return 0;
 }
