@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <stdlib.h>
+#include "malloc.h"
 #include "history.h"
 
 int c = 1; /*counter for id*/
@@ -10,20 +10,20 @@ List* init_history(){
 
 }
 void add_history(List *list, char *str){
-  Item * target = list->root;
+  Item * temp = list->root;
   if(list->root == NULL){
     list->root = (Item*)malloc(sizeof(Item));
     list->root->id = c++;
     list->root->str = str;
     list->root->next = NULL;
   }else{
-  while(target->next != NULL){
-    target = target->next;
+  while(temp->next != NULL){
+    temp = temp->next;
  }
-  target->next = (Item *)malloc(sizeof(Item));
-  target->next->id = c++;
-  target->next->str = str;
-  target->next->next = NULL;
+  temp->next = (Item *)malloc(sizeof(Item));
+  temp->next->id = c++;
+  temp->next->str = str;
+  temp->next->next = NULL;
 }
 }
 char *get_history(List *list, int id){
