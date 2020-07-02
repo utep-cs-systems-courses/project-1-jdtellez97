@@ -58,14 +58,4 @@ char** tokenizer(char *str){
   }
 			  return tokens;
  }
-int main (){
-  char t[50];
-  printf(">");
-   fgets(t,50,stdin);
- printf(" you entered: %s ", t);
- printf("tokenizing : %s ", t);
- 
-  return 0;
-   
-}
 
